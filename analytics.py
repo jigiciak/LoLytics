@@ -12,8 +12,10 @@ champions_list = list(champions_info['data'].keys())
 champions_ct = len(champions_list)
 champions_names = [champions_info['data'][key]['name'] for key in list(champions_info['data'].keys())]
 
+
 def get_info(champion_name):
     return rq.get(f'{path_assets}/en_US/champion/{champion_name}.json').json()['data'][champion_name]
+
 
 def get_spells(champion_info):
     spells_icons = [champion_info['passive']['image']['full'],
@@ -35,6 +37,8 @@ def get_spells(champion_info):
                            champion_info['spells'][3]['description']]
 
     return [spells_icons, spells_names, spells_descriptions]
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     champion_selected = request.form.get("champion_selected")
