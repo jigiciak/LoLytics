@@ -6,7 +6,7 @@
         <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champions[champions_names.index(champion_selected)]}}_0.jpg">
     </div>
         <div class="box2">
-            <form action="{{ url_for('overview.index') }}" method="POST">
+            <form action="{{ url_for('overview.overview') }}" method="POST">
                 <select class="champ-select" id="champion_selected" name="champion_selected" onchange="this.form.submit()">
                     <option selected hidden> {{ champion_selected }}</option>
                     {% for champion in champions_names[0:] %}
