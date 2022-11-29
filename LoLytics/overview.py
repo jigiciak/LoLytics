@@ -14,10 +14,10 @@ champions_ct = len(champions_list)
 champions_names = [champions_info['data'][key]['name'] for key in list(champions_info['data'].keys())]
 
 
-def populate_overview(champion_selected, champ_list):
+def populate_overview(champion_selected):
     if not champion_selected:
-        champion_selected = champ_list[0]
-    champion_info = get_champion_info(champion_selected)
+        champion_selected = champions_list[0]
+    champion_info = get_champion_info(champions_list[champions_names.index(champion_selected)])
     lore = champion_info['lore']
     spells = get_spells_info(champion_info)
 
@@ -28,7 +28,7 @@ def populate_overview(champion_selected, champ_list):
 def overview():
     try:
         champion_selected = request.form.get("champion_selected")
-        lore, spells = populate_overview(champion_selected, champions_list)
+        lore, spells = populate_overview(champion_selected)
         if champion_selected:
             return render_template('overview.html', champions=champions_list, champions_names=champions_names,
                                    champion_selected=champion_selected, lore=lore, spells=spells)
