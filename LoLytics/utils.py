@@ -45,24 +45,19 @@ def get_spells_info(champion_info):
                            champion_info['spells'][1]['description'],
                            champion_info['spells'][2]['description'],
                            champion_info['spells'][3]['description']]
-
     return [spells_icons, spells_names, spells_descriptions]
 
 
 def get_summoner_info(name, platform):
     player_info = requests.get(f'https://{platform}.{api_path_summoner}/{name}?api_key={os.environ.get("LOL_API_KEY")}').json()
-
     return player_info
 
 
 def get_matches(puuid, region):
     matches = requests.get(f'https://{region}.{api_path_matches}/{puuid}/ids?start=0&count=20&api_key={os.environ.get("LOL_API_KEY")}').json()
-
     return matches
 
 
 def get_single_match_info(matchid, region):
     match = requests.get(f'https://{region}.{api_path_single_match}/{matchid}?api_key={os.environ.get("LOL_API_KEY")}').json()
-
     return match
-
