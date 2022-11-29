@@ -2,9 +2,10 @@ import requests
 import os
 
 
-path_assets = "http://ddragon.leagueoflegends.com/cdn/12.22.1/data"
+path_assets = 'http://ddragon.leagueoflegends.com/cdn/12.22.1/data'
 api_path_summoner = 'api.riotgames.com/lol/summoner/v4/summoners/by-name'
 api_path_matches = 'api.riotgames.com/lol/match/v5/matches/by-puuid'
+api_path_single_match = 'api.riotgames.com/lol/match/v5/matches'
 
 
 def region_parser(platform):
@@ -58,3 +59,10 @@ def get_matches(puuid, region):
     matches = requests.get(f'https://{region}.{api_path_matches}/{puuid}/ids?start=0&count=20&api_key={os.environ.get("LOL_API_KEY")}').json()
 
     return matches
+
+
+def get_single_match_info(matchid, region):
+    match = requests.get(f'https://{region}.{api_path_single_match}/{matchid}?api_key={os.environ.get("LOL_API_KEY")}').json()
+
+    return match
+

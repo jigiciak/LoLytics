@@ -23,9 +23,6 @@ def overview():
         spells = get_spells_info(champion_info)
 
         if champion_selected:
-            champion_info = get_champion_info(champions_list[champions_names.index(champion_selected)])
-            lore = champion_info['lore']
-            spells = get_spells_info(champion_info)
             return render_template('overview.html', champions=champions_list, champions_names=champions_names,
                                    champion_selected=champion_selected, lore=lore, spells=spells)
         else:
