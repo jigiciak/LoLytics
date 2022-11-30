@@ -54,10 +54,17 @@ def get_summoner_info(name, platform):
 
 
 def get_matches(puuid, region):
-    matches = requests.get(f'https://{region}.{api_path_matches}/{puuid}/ids?start=0&count=20&api_key={os.environ.get("LOL_API_KEY")}').json()
+    matches = requests.get(f'https://{region}.{api_path_matches}/{puuid}/ids?start=0&count=5&api_key={os.environ.get("LOL_API_KEY")}').json()
     return matches
 
 
 def get_single_match_info(matchid, region):
     match = requests.get(f'https://{region}.{api_path_single_match}/{matchid}?api_key={os.environ.get("LOL_API_KEY")}').json()
     return match
+
+
+def get_matches_info(matches, region):
+    matches_info = []
+    for match in matches:
+        matches_info.append(get_single_match_info(match, region))
+    return matches_info

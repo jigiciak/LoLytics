@@ -17,22 +17,51 @@
     <div class="wrapper3">
         {% for i in range(5) %}
         <div class="p_box{{i}}">
-            <p>{{ summoners_name[i] }}</p>
+            <p style="text-align:right;">{{ summoners[i]['summonerName'] }}</p>
+            <p style="text-align:right;">{{ summoners[i]['kills'] }}/{{ summoners[i]['deaths'] }}/{{ summoners[i]['assists'] }}</p>
+            <p style="text-align:right;">
+                {% set items = [summoners[i]['item0'], summoners[i]['item1'], summoners[i]['item2'], summoners[i]['item3'], summoners[i]['item4'], summoners[i]['item5'], summoners[i]['item6']] %}
+                {% for item in items %}
+                {% if item != 0 %}
+                    <img class="item" src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/{{item}}.png">
+                {% endif %}
+                {% endfor %}
+            </p>
         </div>
         <div class="p_box{{i+5}}">
-            <p>{{ summoners_name[i+5] }}</p>
+            <p>{{ summoners[i+5]['summonerName'] }}</p>
+            <p>{{ summoners[i+5]['kills'] }}/{{ summoners[i+5]['deaths'] }}/{{ summoners[i+5]['assists'] }}</p>
+            <p>
+                {% set items = [summoners[i+5]['item0'], summoners[i+5]['item1'], summoners[i+5]['item2'], summoners[i+5]['item3'], summoners[i+5]['item4'], summoners[i+5]['item5'], summoners[i+5]['item6']] %}
+                {% for item in items %}
+                {% if item != 0 %}
+                    <img class="item" src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/{{item}}.png">
+                {% endif %}
+                {% endfor %}
+            </p>
         </div>
         <div class="p_box{{i+10}}">
             <div class="image">
-                <img src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/{{champions[i]}}.png">
+                <img src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/{{summoners[i]['championName']}}.png">
                 <span class="tooltiptext">{{ champion_names[i] }}</span>
             </div>
         </div>
         <div class="p_box{{i+15}}">
             <div class="image">
-                <img src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/{{champions[i+5]}}.png">
+                <img src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/{{summoners[i+5]['championName']}}.png">
                 <span class="tooltiptext">{{ champion_names[i+5] }}</span>
             </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="box4">
+        {% set match_ct = 0 %}
+        {% for match in matches %}
+        <div class="m_box{{match_ct}}">
+            {% for participant in match['info']['participants'] %}
+                <img class="match_champ" src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/{{participant['championName']}}.png">
+            {% endfor %}
+            {% set match_ct = match_ct + 1 %}
         </div>
         {% endfor %}
     </div>
