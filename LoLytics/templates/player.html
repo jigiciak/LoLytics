@@ -62,6 +62,11 @@
                 <img class="match_champ" src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/{{participant['championName']}}.png">
             {% endfor %}
             {% set match_ct = match_ct + 1 %}
+            <form method="POST">
+                <input name="summoners_name" value="{{player_name}}" hidden>
+                <input name="match_id" value="{{match['metadata']['matchId']}}" hidden>
+                <input type="submit">
+            </form>
         </div>
         {% endfor %}
     </div>

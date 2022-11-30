@@ -15,6 +15,7 @@ champions_info = rq.get(f'{path_assets}/en_US/champion.json').json()
 champions_list = list(champions_info['data'].keys())
 champions_names = [champions_info['data'][key]['name'] for key in list(champions_info['data'].keys())]
 
+
 @player_bp.route('/player', methods=['GET', 'POST'])
 def player():
     try:
@@ -25,7 +26,7 @@ def player():
             matches_id = get_matches(summoner_info['puuid'], region_parser('eun1'))
             matches = get_matches_info(matches_id, region_parser('eun1'))
             if match_id:
-                single_match_info = matches[0]
+                single_match_info = get_single_match_info(match_id, region_parser('eun1'))
             else:
                 single_match_info = matches[0]
             summoners = [summoner for summoner in single_match_info['info']['participants']]
