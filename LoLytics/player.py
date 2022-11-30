@@ -25,9 +25,9 @@ def player():
             matches_id = get_matches(summoner_info['puuid'], region_parser('eun1'))
             matches = get_matches_info(matches_id, region_parser('eun1'))
             if match_id:
-                single_match_info = get_single_match_info(match_id, region_parser('eun1'))
+                single_match_info = matches[0]
             else:
-                single_match_info = get_single_match_info(matches_id[0], region_parser('eun1'))
+                single_match_info = matches[0]
             summoners = [summoner for summoner in single_match_info['info']['participants']]
             s_champions = [summoner['championName'] for summoner in summoners]
             s_champions_n = [champions_names[champions_list.index(champ)] for champ in s_champions]
