@@ -17,41 +17,22 @@
         </div>
         <div class="box3"><p>{{ lore }}</p></div>
         <div class="wrapper2">
-            <div class="box4">
+            <div class="o_box0">
                 <img src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/passive/{{spells[0][0]}}">
             </div>
-            <div class="box5">
-                <img src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/{{spells[0][1]}}">
-            </div>
-            <div class="box6">
-                <img src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/{{spells[0][2]}}">
-            </div>
-            <div class="box7">
-                <img src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/{{spells[0][3]}}">
-            </div>
-            <div class="box8">
-                <img src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/{{spells[0][4]}}">
-            </div>
-            <div class="box9">
+            <div class="o_box5">
                 <p>{{spells[1][0]}}</p>
                 <p class="desc">{{spells[2][0]}}</p>
             </div>
-            <div class="box10">
-                <p>{{spells[1][1]}}</p>
-                <p class="desc">{{spells[2][1]}}</p>
+            {% for i in range(1,5) %}
+            <div class="o_box{{i}}">
+                <img src="http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/{{spells[0][i]}}">
             </div>
-            <div class="box11">
-                <p>{{spells[1][2]}}</p>
-                <p class="desc">{{spells[2][2]}}</p>
+            <div class="o_box{{i+5}}">
+                <p>{{spells[1][i]}}</p>
+                <p class="desc">{{spells[2][i]}}</p>
             </div>
-            <div class="box12">
-                <p>{{spells[1][3]}}</p>
-                <p class="desc">{{spells[2][3]}}</p>
-            </div>
-            <div class="box13">
-                <p>{{spells[1][4]}}</p>
-                <p class="desc">{{spells[2][4]}}</p>
-            </div>
+            {% endfor %}
         </div>
 </div>
 <script>

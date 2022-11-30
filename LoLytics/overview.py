@@ -10,7 +10,6 @@ overview_bp = Blueprint('overview', __name__, template_folder='templates')
 path_assets = "http://ddragon.leagueoflegends.com/cdn/12.22.1/data"
 champions_info = rq.get(f'{path_assets}/en_US/champion.json').json()
 champions_list = list(champions_info['data'].keys())
-champions_ct = len(champions_list)
 champions_names = [champions_info['data'][key]['name'] for key in list(champions_info['data'].keys())]
 
 

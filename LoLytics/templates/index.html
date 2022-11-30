@@ -5,7 +5,12 @@
     <title><!{% extends 'base.html' %}
 
 {% block wrapper %}
-        <a href="/overview">a</a>
+        <a href="/overview">Champions Overview</a>
+
+        <form class="champ-select" method="POST" action="/player">
+            <input name="summoners_name">
+            <input type="submit">
+        </form>
 {% endblock %}
 </title>
 </head>

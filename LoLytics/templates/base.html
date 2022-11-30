@@ -45,87 +45,128 @@
             padding-left: 10px;
             margin-bottom: 10px;
         }
-        .box4 {
+        .o_box0 {
             grid-column-start: 1;
             grid-row-start: 1;
         }
-        .box5 {
+        .o_box1 {
             grid-column-start: 1;
             grid-row-start: 2;
         }
-        .box6 {
+        .o_box2 {
             grid-column-start: 1;
             grid-row-start: 3;
         }
-        .box7 {
+        .o_box3 {
             grid-column-start: 1;
             grid-row-start: 4;
         }
-        .box8 {
+        .o_box4 {
             grid-column-start: 1;
             grid-row-start: 5;
         }
-        .box9 {
+        .o_box5 {
             grid-column-start: 2;
             grid-row-start: 1;
             text-align: top;
         }
-        .box10 {
+        .o_box6 {
             grid-column-start: 2;
             grid-row-start: 2;
         }
-        .box11 {
+        .o_box7 {
             grid-column-start: 2;
             grid-row-start: 3;
         }
-        .box12 {
+        .o_box8 {
             grid-column-start: 2;
             grid-row-start: 4;
         }
-        .box13 {
+        .o_box9 {
             grid-column-start: 2;
             grid-row-start: 5;
         }
-        .box14 {
+        .p_box0 {
+            grid-column-start: 1;
+            grid-row-start: 1;
+        }
+        .p_box1 {
+            grid-column-start: 1;
+            grid-row-start: 2;
+        }
+        .p_box2 {
+            grid-column-start: 1;
+            grid-row-start: 3;
+        }
+        .p_box3 {
+            grid-column-start: 1;
+            grid-row-start: 4;
+        }
+        .p_box4 {
+            grid-column-start: 1;
+            grid-row-start: 5;
+        }
+        .p_box5 {
+            grid-column-start: 4;
+            grid-row-start: 1;
+            text-align: top;
+        }
+        .p_box6 {
+            grid-column-start: 4;
+            grid-row-start: 2;
+        }
+        .p_box7 {
+            grid-column-start: 4;
+            grid-row-start: 3;
+        }
+        .p_box8 {
+            grid-column-start: 4;
+            grid-row-start: 4;
+        }
+        .p_box9 {
+            grid-column-start: 4;
+            grid-row-start: 5;
+        }
+        .p_box10 {
+            grid-column-start: 2;
+            grid-row-start: 1;
+            text-align: top;
+        }
+        .p_box11 {
+            grid-column-start: 2;
+            grid-row-start: 2;
+        }
+        .p_box12 {
+            grid-column-start: 2;
+            grid-row-start: 3;
+        }
+        .p_box13 {
+            grid-column-start: 2;
+            grid-row-start: 4;
+        }
+        .p_box14 {
+            grid-column-start: 2;
+            grid-row-start: 5;
+        }
+        .p_box15 {
             grid-column-start: 3;
             grid-row-start: 1;
             text-align: top;
         }
-        .box15 {
+        .p_box16 {
             grid-column-start: 3;
             grid-row-start: 2;
         }
-        .box16 {
+        .p_box17 {
             grid-column-start: 3;
             grid-row-start: 3;
         }
-        .box17 {
+        .p_box18 {
             grid-column-start: 3;
             grid-row-start: 4;
         }
-        .box18 {
+        .p_box19 {
             grid-column-start: 3;
-            grid-row-start: 5;
-        }
-        .box19 {
-            grid-column-start: 4;
-            grid-row-start: 1;
-            text-align: top;
-        }
-        .box20 {
-            grid-column-start: 4;
-            grid-row-start: 2;
-        }
-        .box21 {
-            grid-column-start: 4;
-            grid-row-start: 3;
-        }
-        .box22 {
-            grid-column-start: 4;
-            grid-row-start: 4;
-        }
-        .box23 {
-            grid-column-start: 4;
             grid-row-start: 5;
         }
 
@@ -160,6 +201,41 @@
         .desc {
             font-size: 0.5vw;
             font-style: italic;
+        }
+        .image {
+            position: relative;
+        }
+        .image .tooltiptext {
+            visibility: hidden;
+            width: 100%;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .image:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
 </head>
